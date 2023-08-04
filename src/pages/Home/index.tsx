@@ -1,11 +1,10 @@
+import Header from "../../components/Header";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <header>
-        <h3>Github Api</h3>
-      </header>
+     <Header />
 
       <main>
         <h1>Desafio Github API</h1>
