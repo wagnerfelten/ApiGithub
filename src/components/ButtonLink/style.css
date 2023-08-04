@@ -1,0 +1,13 @@
+a{
+    font-size: 18px;
+    padding: 16px;
+    border-radius: 10px;
+  
+    background-color: #1890FF;
+    color: #fff;
+}
+
+a:hover{
+    background-color: #0b68be;
+}
+  

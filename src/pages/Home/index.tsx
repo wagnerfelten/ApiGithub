@@ -1,3 +1,4 @@
+import ButtonLink from "../../components/ButtonLink";
 import Header from "../../components/Header";
 import "./App.css";
 
@@ -10,7 +11,7 @@ function App() {
         <h1>Desafio Github API</h1>
         <p>DevSuperior - Escola de programação</p>
         <div className="Link">
-          <a href="#">Começar</a>
+          <ButtonLink title="Começar" />
         </div>
       </main>
     </>
