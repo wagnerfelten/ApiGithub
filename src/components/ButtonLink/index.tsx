@@ -9,7 +9,7 @@ type Props = {
 const ButtonLink = ({ title} : Props) => {
   return (
     <div>
-      <Link to="/Home">{title}</Link>
+      <Link to="/searchProfile">{title}</Link>
     </div>
   );
 };
