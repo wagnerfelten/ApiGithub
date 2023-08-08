@@ -4,7 +4,7 @@ import "./style.css";
 
 const Card = () => {
     return(
-        <main>
+        <main className="main-container">
             <img src={user} alt="user" />
             <section className="section-container">
                 <h3>Informações</h3>

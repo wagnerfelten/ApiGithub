@@ -1,0 +1,37 @@
+.main-container{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 850px;
+    height: 300px;
+}
+
+.section-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: #D9D9D9 solid 1px;
+    border-radius: 10px;
+    
+    width: 750px;
+    padding: 10px;
+
+}
+
+img{
+    width: 150px;
+    height: 150px;
+}
+
+.section-container h3{
+    color: #1890FF;
+}
+
+p{
+    font-weight: 700;
+    height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: #D9D9D9 solid 2px;
+}
