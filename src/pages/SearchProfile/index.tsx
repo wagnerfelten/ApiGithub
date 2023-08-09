@@ -1,24 +1,44 @@
 import { useState } from "react";
-import "./style.css";
 import Card from "../../components/Card";
+import axios from "axios";
+
+import "./style.css";
 
 type userData = {
-  user: string
-}
+  user: string;
+};
+
+type dataGithub = {
+  url: string;
+  name: string;
+  following: string;
+  location: string;
+};
 
 const SearchProfile = () => {
+  const [dataGithub, setDataGithub] = useState<dataGithub>();
 
   const [userData, setUserData] = useState<userData>({
-    user: ''
-  })
+    user: "",
+  });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("mudou" + event.target.value);
-  };
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setUserData({...userData, [name]: value})
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    //event.preventDefault();
-    console.log("Click no botao");
+    event.preventDefault();
+
+    axios.get(`https://api.github.com/users/${userData.user}`)
+    .then((res) => {
+      setDataGithub(res.data);
+    }).catch((error) => {
+      setDataGithub(undefined);
+      console.log(error)
+    });
   };
 
   return (
@@ -36,8 +56,14 @@ const SearchProfile = () => {
           />
           <button type="submit">Encontrar</button>
         </form>
-
-        <Card />
+        {dataGithub && (
+          <Card
+            perfil={dataGithub.url}
+            local={dataGithub.location}
+            segui={dataGithub.following}
+            name={dataGithub.name}
+          />
+        )}
       </main>
     </>
   );
