@@ -5,12 +5,16 @@ type Props = {
   segui: string;
   local: string;
   name: string;
+  avatar_url: string
 };
 
-const Card = ({ perfil, segui, local, name }: Props) => {
+
+
+const Card = ({ perfil, segui, local, name, avatar_url }: Props) => {
+  
   return (
     <main className="main-container">
-      <img src="" alt="user" />
+      <img src={avatar_url} alt="user" />
       <section className="section-container">
         <h3>Informações</h3>
         <div className="descipt-title color-blue">

@@ -13,6 +13,7 @@ type dataGithub = {
   name: string;
   following: string;
   location: string;
+  avatar_url: string;
 };
 
 const SearchProfile = () => {
@@ -26,19 +27,21 @@ const SearchProfile = () => {
     const name = event.target.name;
     const value = event.target.value;
 
-    setUserData({...userData, [name]: value})
-  }
+    setUserData({ ...userData, [name]: value });
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    axios.get(`https://api.github.com/users/${userData.user}`)
-    .then((res) => {
-      setDataGithub(res.data);
-    }).catch((error) => {
-      setDataGithub(undefined);
-      console.log(error)
-    });
+    axios
+      .get(`https://api.github.com/users/${userData.user}`)
+      .then((res) => {
+        setDataGithub(res.data);
+      })
+      .catch((error) => {
+        setDataGithub(undefined);
+        console.log(error);
+      });
   };
 
   return (
@@ -56,14 +59,19 @@ const SearchProfile = () => {
           />
           <button type="submit">Encontrar</button>
         </form>
-        {dataGithub && (
-          <Card
-            perfil={dataGithub.url}
-            local={dataGithub.location}
-            segui={dataGithub.following}
-            name={dataGithub.name}
-          />
-        )}
+        
+        <div className="card-container">
+        
+          {dataGithub && (
+            <Card
+              avatar_url={dataGithub.avatar_url}
+              perfil={dataGithub.url}
+              local={dataGithub.location}
+              segui={dataGithub.following}
+              name={dataGithub.name}
+            />
+          )}
+        </div>
       </main>
     </>
   );
